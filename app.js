@@ -59,11 +59,12 @@ app.get('/', (req,res) => {
     res.render('index')
 });
 
+// Upload a file to Mongo DB
 app.post('/upload', upload.single('file'),(req,res) => {
     res.json({ file: req.file})
 })
 
-
+// Get list of files from Mongo DB
 app.get('/files', (req,res) => {
     gfs.files.find().toArray((err, files) => {
 
